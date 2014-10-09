@@ -1,0 +1,21 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+header{
+	padding: 20px 0;
+	background: #FFF;
+	position: fixed;
+	top: 0;
+	left: 0;
+	border-bottom: 2px solid #005DBD;
+	width: 100%;
+}
+.navbar-default{
+	background: none;
+	border: none;
+}
+.navbar-brand{
+	height: auto;
+	padding: 0;
+}
