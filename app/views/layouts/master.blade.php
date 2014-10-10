@@ -5,8 +5,8 @@
     <title>{{ $title }}</title>
     <meta name="description" content="{{ $meta_description }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-     @section('css')
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    @section('css')
         {{ HTML::style('css/bootstrap.min.css') }}
         {{ HTML::style('css/estilo.css') }}
     @show

@@ -4,18 +4,51 @@
 }
 header{
 	padding: 20px 0;
-	background: #FFF;
+	background: rgba(255, 255, 255, 0.9);
 	position: fixed;
 	top: 0;
 	left: 0;
-	border-bottom: 2px solid #005DBD;
 	width: 100%;
+	z-index: 5;
+}
+h1{
+	font: 2em 'Roboto Condensed', sans-serif;
+	text-transform: uppercase;
 }
 .navbar-default{
 	background: none;
 	border: none;
 }
+.navbar{
+	margin-bottom: 0;
+}
+.navbar-nav{
+	float: right;
+}
 .navbar-brand{
 	height: auto;
 	padding: 0;
+}
+.navbar-default .navbar-nav>li>a{
+	font-family: 'Roboto Condensed', sans-serif;
+	text-transform: uppercase;
+}
+.nav>li{
+	margin-top: 21px;
+}
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a.active{
+	color: #005DBD;
+}
+.programa h2{
+	font: 1em 'Roboto Condensed', sans-serif;
+	text-transform: uppercase;
+	text-align: center;
+}
+#owl-demo{
+	margin-top: 132px;
+}
+#owl-demo .item img{
+    display: block;
+    width: 100%;
+    height: auto;
 }
