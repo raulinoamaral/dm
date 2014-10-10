@@ -17,17 +17,18 @@
 				autoPlay: true
 	  		});
 		});
-		$(function() {
-			var offset = $("#page").offset();
-			$("#page").scroll(function() {
-				if ($("#page").scrollTop() + 132 < offset.top) {
-					$("header").addClass("borde");
-					alert(offset.top)
-				} else {
-					$("header").removeClass("borde");
+		$(window).scroll(function (){
+			if(navigator.platform != "iPad")
+				if($(window).width() > 960)
+				{
+		   			if ($(window).scrollTop() < 444)
+						$('header').removeClass("borde");
+					else
+						$('header').addClass("borde");
 				}
-			});
+			}
 		});
+
 	</script>
 @stop
 
