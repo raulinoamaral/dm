@@ -19,6 +19,7 @@
 		});
 		$(window).scroll(function (){
 			if(navigator.platform != "iPad")
+			{
 				if($(window).width() > 960)
 				{
 		   			if ($(window).scrollTop() < 444)
@@ -26,7 +27,7 @@
 					else
 						$('header').addClass("borde");
 				}
-			}
+			}		
 		});
 
 	</script>

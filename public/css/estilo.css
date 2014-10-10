@@ -52,3 +52,9 @@ h1{
     width: 100%;
     height: auto;
 }
+.item img{
+	position: relative;
+}
+.item-descripcion{
+	position: absolute;
+}
