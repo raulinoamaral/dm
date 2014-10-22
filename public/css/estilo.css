@@ -2,18 +2,30 @@
 	padding: 0;
 	margin: 0;
 }
+body{
+	font-size: 'Roboto Condensed', sans-serif;
+	font-weight: 400;
+}
 header{
 	padding: 20px 0;
-	background: rgba(255, 255, 255, 0.9);
-	position: fixed;
-	top: 0;
-	left: 0;
 	width: 100%;
 	z-index: 5;
 }
 h1{
-	font: 2em 'Roboto Condensed', sans-serif;
+	font-size: 2em; 
 	text-transform: uppercase;
+}
+h2{
+	font-size: 1.2em;
+}
+p{
+	font-size: 1em;
+}
+a, a:hover{
+	color: #005DBD;
+}
+ul li{
+	list-style: none;
 }
 .navbar-default{
 	background: none;
@@ -29,32 +41,104 @@ h1{
 	height: auto;
 	padding: 0;
 }
+.nav li a{
+	display: inline-block;
+}
 .navbar-default .navbar-nav>li>a{
-	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 1.2em;
 	text-transform: uppercase;
 }
 .nav>li{
 	margin-top: 21px;
 }
+.nav>li+li:before{
+	content: '/';
+	color: #777;
+}
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a.active{
 	color: #005DBD;
 }
-.programa h2{
-	font: 1em 'Roboto Condensed', sans-serif;
-	text-transform: uppercase;
+.border-top{
+	border-top: 1px solid #333;
+	padding-top: 10px;
+	margin-top: 20px;
+}
+#filtro-proyectos{
+	margin-top: 40px;
+}
+#filtro-proyectos li{
+	cursor: pointer;
 	text-align: center;
+	padding: 5px;
+	border-top: 1px solid #333;
+	margin-top: 5px;
 }
-#owl-demo{
-	margin-top: 132px;
+#filtro-proyectos li:hover{
+	color: #005DBD;
 }
-#owl-demo .item img{
-    display: block;
-    width: 100%;
-    height: auto;
+#proyectos .mix{
+	display: none;
+	float: left;
+	width: 50%;
+	padding: 0 20px;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit  */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko         */
+	box-sizing: border-box; 
 }
-.item img{
-	position: relative;
+.resultado-proyecto p{
+	text-align: justify;
+	font-size: .9em;
+	margin-top: 15px;
 }
-.item-descripcion{
-	position: absolute;
+form{
+	font-size: 'Roboto Condensed', sans-serif;
 }
+input, textarea{
+	width: 100%;
+	margin-bottom: 20px;
+	border: none;
+	border-bottom: 1px solid #333;
+	padding: 5px 5px 2px 0;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit  */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko         */
+	box-sizing: border-box;
+	outline: none;
+}
+input:hover, textarea:hover, input:focus, textarea:focus{
+	border-bottom: 1px solid #005DBD;
+}
+#btnEnviar{
+	border: none;
+	border-bottom: 2px solid #333;
+	background: none;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+#mapa{
+	width: 100%;
+	height: 440px;
+}
+
+
+
+footer{
+	padding-bottom: 20px;
+	font-size: 1em;
+}
+footer .container{
+	padding: 0;
+}
+.datos{
+	float: left;
+	margin-left: 15px;
+	padding-top: 5px;
+}
+	
+.datos span{
+	display: block;
+	font-weight: 300;
+}
+#balloon{
+	float: right;
+}
+

@@ -15,11 +15,25 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function show()
+	public function showIndex()
 	{
 		$title = 'Decarlini Maside Arquitectura y Dise&ntilde;o - Rocha, Uruguay';
 		$meta_description = '';
 		return View::make('web.index', array('title' => $title, 'meta_description' => $meta_description));
+	}
+
+	public function showPortafolio()
+	{
+		$title = 'Decarlini Maside Arquitectura y Dise&ntilde;o - Rocha, Uruguay';
+		$meta_description = '';
+		return View::make('web.portafolio', array('title' => $title, 'meta_description' => $meta_description));
+	}
+
+	public function showContacto()
+	{
+		$title = 'Decarlini Maside Arquitectura y Dise&ntilde;o - Rocha, Uruguay';
+		$meta_description = '';
+		return View::make('web.contacto', array('title' => $title, 'meta_description' => $meta_description));
 	}
 
 }

@@ -11,4 +11,9 @@
 |
 */
 
-Route::get('/', 'HomeController@show');
+Route::get('/', 'HomeController@showIndex');
+
+Route::get('/portafolio', 'HomeController@showPortafolio');
+
+Route::get('/contacto', 'HomeController@showContacto');
+
