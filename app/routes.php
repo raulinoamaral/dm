@@ -11,13 +11,8 @@
 |
 */
 
-<<<<<<< HEAD
 Route::get('/', 'HomeController@showIndex');
 
 Route::get('/portafolio', 'HomeController@showPortafolio');
 
 Route::get('/contacto', 'HomeController@showContacto');
-
-=======
-Route::get('/', 'HomeController@show');
->>>>>>> FETCH_HEAD
