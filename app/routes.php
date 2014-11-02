@@ -15,4 +15,6 @@ Route::get('/', 'HomeController@showIndex');
 
 Route::get('/portafolio', 'HomeController@showPortafolio');
 
+Route::get('/ficha', 'HomeController@showFicha');
+
 Route::get('/contacto', 'HomeController@showContacto');

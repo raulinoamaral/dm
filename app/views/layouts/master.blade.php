@@ -5,7 +5,7 @@
     <title>{{ $title }}</title>
     <meta name="description" content="{{ $meta_description }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
     @section('css')
         {{ HTML::style('css/bootstrap.min.css') }}
         {{ HTML::style('css/estilo.css') }}

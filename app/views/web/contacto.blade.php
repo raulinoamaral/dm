@@ -24,13 +24,12 @@
 					{{ Form::textarea('mensaje', '', ['id' => 'mensaje', 'placeholder' => 'Mensaje']) }}
 					{{ Form::submit('Enviar', ['id' => 'btnEnviar']) }}
 					{{ Form::close() }}
-				</div>
-				
+				</div>	
 			</div>
 			<div class="col-sm-8">
 				<div class="border-top">
-					<h2>Av. del Navio s/n “Rinc&oacute;n de Piedra” / La Paloma / Uruguay</h2>
-					<div id="mapa"></div>	
+					<div id="mapa"></div>
+					<h2 id="direccion">Av. del Navio s/n “Rinc&oacute;n de Piedra” / La Paloma / Uruguay</h2>	
 				</div>					
 			</div>
 		</div>
