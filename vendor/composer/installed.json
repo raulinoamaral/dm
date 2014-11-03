@@ -523,66 +523,6 @@
         ]
     },
     {
-        "name": "filp/whoops",
-        "version": "1.1.2",
-        "version_normalized": "1.1.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/filp/whoops.git",
-            "reference": "9f451fbc7b8cad5e71300672c340c28c6bec09ff"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/filp/whoops/zipball/9f451fbc7b8cad5e71300672c340c28c6bec09ff",
-            "reference": "9f451fbc7b8cad5e71300672c340c28c6bec09ff",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "require-dev": {
-            "mockery/mockery": "0.9.*"
-        },
-        "time": "2014-07-11 05:56:54",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.2-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Whoops": "src/"
-            },
-            "classmap": [
-                "src/deprecated"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Filipe Dobreira",
-                "homepage": "https://github.com/filp",
-                "role": "Developer"
-            }
-        ],
-        "description": "php error handling for cool kids",
-        "homepage": "https://github.com/filp/whoops",
-        "keywords": [
-            "error",
-            "exception",
-            "handling",
-            "library",
-            "silex-provider",
-            "whoops",
-            "zf2"
-        ]
-    },
-    {
         "name": "ircmaxell/password-compat",
         "version": "1.0.3",
         "version_normalized": "1.0.3.0",
@@ -878,19 +818,79 @@
         ]
     },
     {
+        "name": "filp/whoops",
+        "version": "1.1.3",
+        "version_normalized": "1.1.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/filp/whoops.git",
+            "reference": "a85fab9a98f1f9b8ebcdbe71733f0d910e5b9adf"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/filp/whoops/zipball/a85fab9a98f1f9b8ebcdbe71733f0d910e5b9adf",
+            "reference": "a85fab9a98f1f9b8ebcdbe71733f0d910e5b9adf",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "0.9.*"
+        },
+        "time": "2014-10-26 09:05:09",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Whoops": "src/"
+            },
+            "classmap": [
+                "src/deprecated"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Filipe Dobreira",
+                "homepage": "https://github.com/filp",
+                "role": "Developer"
+            }
+        ],
+        "description": "php error handling for cool kids",
+        "homepage": "https://github.com/filp/whoops",
+        "keywords": [
+            "error",
+            "exception",
+            "handling",
+            "library",
+            "silex-provider",
+            "whoops",
+            "zf2"
+        ]
+    },
+    {
         "name": "symfony/dom-crawler",
-        "version": "v2.5.5",
-        "version_normalized": "2.5.5.0",
+        "version": "v2.5.6",
+        "version_normalized": "2.5.6.0",
         "target-dir": "Symfony/Component/DomCrawler",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/DomCrawler.git",
-            "reference": "a2804ec76442a9d0a3bb25f99a7830ba24743e07"
+            "reference": "5b45ef9b8a8e6dda47eb9b9b982f61e8b2caa21e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/a2804ec76442a9d0a3bb25f99a7830ba24743e07",
-            "reference": "a2804ec76442a9d0a3bb25f99a7830ba24743e07",
+            "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/5b45ef9b8a8e6dda47eb9b9b982f61e8b2caa21e",
+            "reference": "5b45ef9b8a8e6dda47eb9b9b982f61e8b2caa21e",
             "shasum": ""
         },
         "require": {
@@ -902,7 +902,7 @@
         "suggest": {
             "symfony/css-selector": ""
         },
-        "time": "2014-09-22 09:14:18",
+        "time": "2014-10-01 05:50:18",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -934,8 +934,8 @@
     },
     {
         "name": "symfony/browser-kit",
-        "version": "v2.5.5",
-        "version_normalized": "2.5.5.0",
+        "version": "v2.5.6",
+        "version_normalized": "2.5.6.0",
         "target-dir": "Symfony/Component/BrowserKit",
         "source": {
             "type": "git",
@@ -991,18 +991,18 @@
     },
     {
         "name": "symfony/console",
-        "version": "v2.5.5",
-        "version_normalized": "2.5.5.0",
+        "version": "v2.5.6",
+        "version_normalized": "2.5.6.0",
         "target-dir": "Symfony/Component/Console",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/Console.git",
-            "reference": "ca053eaa031c93afb68a71e4eb1f4168dfd4a661"
+            "reference": "6f177fca24200a5b97aef5ce7a5c98124a0f0db0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Console/zipball/ca053eaa031c93afb68a71e4eb1f4168dfd4a661",
-            "reference": "ca053eaa031c93afb68a71e4eb1f4168dfd4a661",
+            "url": "https://api.github.com/repos/symfony/Console/zipball/6f177fca24200a5b97aef5ce7a5c98124a0f0db0",
+            "reference": "6f177fca24200a5b97aef5ce7a5c98124a0f0db0",
             "shasum": ""
         },
         "require": {
@@ -1016,7 +1016,7 @@
             "psr/log": "For using the console logger",
             "symfony/event-dispatcher": ""
         },
-        "time": "2014-09-25 09:53:56",
+        "time": "2014-10-05 13:57:04",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1048,24 +1048,24 @@
     },
     {
         "name": "symfony/css-selector",
-        "version": "v2.5.5",
-        "version_normalized": "2.5.5.0",
+        "version": "v2.5.6",
+        "version_normalized": "2.5.6.0",
         "target-dir": "Symfony/Component/CssSelector",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/CssSelector.git",
-            "reference": "caf5ecc3face1f22884fb74b8edab65ac5ba9976"
+            "reference": "7cdf543a3f31935aae58de4e6e607d4bdeb3f5dc"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/CssSelector/zipball/caf5ecc3face1f22884fb74b8edab65ac5ba9976",
-            "reference": "caf5ecc3face1f22884fb74b8edab65ac5ba9976",
+            "url": "https://api.github.com/repos/symfony/CssSelector/zipball/7cdf543a3f31935aae58de4e6e607d4bdeb3f5dc",
+            "reference": "7cdf543a3f31935aae58de4e6e607d4bdeb3f5dc",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.3"
         },
-        "time": "2014-09-22 09:14:18",
+        "time": "2014-10-09 16:00:03",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1101,24 +1101,24 @@
     },
     {
         "name": "symfony/finder",
-        "version": "v2.5.5",
-        "version_normalized": "2.5.5.0",
+        "version": "v2.5.6",
+        "version_normalized": "2.5.6.0",
         "target-dir": "Symfony/Component/Finder",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/Finder.git",
-            "reference": "d5033742b9a6206ef6d06e813870bca18e9205df"
+            "reference": "cf66df4e783e6aade319b273c9bcf9e42aa9b10f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Finder/zipball/d5033742b9a6206ef6d06e813870bca18e9205df",
-            "reference": "d5033742b9a6206ef6d06e813870bca18e9205df",
+            "url": "https://api.github.com/repos/symfony/Finder/zipball/cf66df4e783e6aade319b273c9bcf9e42aa9b10f",
+            "reference": "cf66df4e783e6aade319b273c9bcf9e42aa9b10f",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.3"
         },
-        "time": "2014-09-27 08:35:39",
+        "time": "2014-10-01 05:50:18",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1150,18 +1150,18 @@
     },
     {
         "name": "symfony/debug",
-        "version": "v2.5.5",
-        "version_normalized": "2.5.5.0",
+        "version": "v2.5.6",
+        "version_normalized": "2.5.6.0",
         "target-dir": "Symfony/Component/Debug",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/Debug.git",
-            "reference": "4a3dd4ef3fc0cee2fd9faaae12bd7af43afcf648"
+            "reference": "2538d5099b9728b6ca09b261566a766f4f847459"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Debug/zipball/4a3dd4ef3fc0cee2fd9faaae12bd7af43afcf648",
-            "reference": "4a3dd4ef3fc0cee2fd9faaae12bd7af43afcf648",
+            "url": "https://api.github.com/repos/symfony/Debug/zipball/2538d5099b9728b6ca09b261566a766f4f847459",
+            "reference": "2538d5099b9728b6ca09b261566a766f4f847459",
             "shasum": ""
         },
         "require": {
@@ -1175,7 +1175,7 @@
             "symfony/http-foundation": "",
             "symfony/http-kernel": ""
         },
-        "time": "2014-09-28 15:22:14",
+        "time": "2014-10-24 05:49:22",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1207,18 +1207,18 @@
     },
     {
         "name": "symfony/http-foundation",
-        "version": "v2.5.5",
-        "version_normalized": "2.5.5.0",
+        "version": "v2.5.6",
+        "version_normalized": "2.5.6.0",
         "target-dir": "Symfony/Component/HttpFoundation",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/HttpFoundation.git",
-            "reference": "650e115af152d7a5e857d01c2cdb9a22809de9b4"
+            "reference": "56111fc8ba8bcad93d367532babecc6ce17f66ce"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/650e115af152d7a5e857d01c2cdb9a22809de9b4",
-            "reference": "650e115af152d7a5e857d01c2cdb9a22809de9b4",
+            "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/56111fc8ba8bcad93d367532babecc6ce17f66ce",
+            "reference": "56111fc8ba8bcad93d367532babecc6ce17f66ce",
             "shasum": ""
         },
         "require": {
@@ -1227,7 +1227,7 @@
         "require-dev": {
             "symfony/expression-language": "~2.4"
         },
-        "time": "2014-09-25 09:52:29",
+        "time": "2014-10-24 05:49:22",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1262,18 +1262,18 @@
     },
     {
         "name": "symfony/event-dispatcher",
-        "version": "v2.5.5",
-        "version_normalized": "2.5.5.0",
+        "version": "v2.5.6",
+        "version_normalized": "2.5.6.0",
         "target-dir": "Symfony/Component/EventDispatcher",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/EventDispatcher.git",
-            "reference": "f6281337bf5f985f585d1db6a83adb05ce531f46"
+            "reference": "804eb28dbbfba9ffdab21fe2066744906cea2212"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/f6281337bf5f985f585d1db6a83adb05ce531f46",
-            "reference": "f6281337bf5f985f585d1db6a83adb05ce531f46",
+            "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/804eb28dbbfba9ffdab21fe2066744906cea2212",
+            "reference": "804eb28dbbfba9ffdab21fe2066744906cea2212",
             "shasum": ""
         },
         "require": {
@@ -1289,7 +1289,7 @@
             "symfony/dependency-injection": "",
             "symfony/http-kernel": ""
         },
-        "time": "2014-09-28 15:56:11",
+        "time": "2014-10-01 15:43:05",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1321,18 +1321,18 @@
     },
     {
         "name": "symfony/http-kernel",
-        "version": "v2.5.5",
-        "version_normalized": "2.5.5.0",
+        "version": "v2.5.6",
+        "version_normalized": "2.5.6.0",
         "target-dir": "Symfony/Component/HttpKernel",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/HttpKernel.git",
-            "reference": "6a3595611229def14d5e644f060cf372235532ec"
+            "reference": "cf8f6935f383cf5501499fef7677c36d4205e398"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/6a3595611229def14d5e644f060cf372235532ec",
-            "reference": "6a3595611229def14d5e644f060cf372235532ec",
+            "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/cf8f6935f383cf5501499fef7677c36d4205e398",
+            "reference": "cf8f6935f383cf5501499fef7677c36d4205e398",
             "shasum": ""
         },
         "require": {
@@ -1363,7 +1363,7 @@
             "symfony/dependency-injection": "",
             "symfony/finder": ""
         },
-        "time": "2014-09-28 17:33:53",
+        "time": "2014-10-24 06:55:39",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1395,24 +1395,24 @@
     },
     {
         "name": "symfony/process",
-        "version": "v2.5.5",
-        "version_normalized": "2.5.5.0",
+        "version": "v2.5.6",
+        "version_normalized": "2.5.6.0",
         "target-dir": "Symfony/Component/Process",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/Process.git",
-            "reference": "8a1ec96c4e519cee0fb971ea48a1eb7369dda54b"
+            "reference": "9bbacbb3a7a27b17c0d51e2f126f59e0e588ad3a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Process/zipball/8a1ec96c4e519cee0fb971ea48a1eb7369dda54b",
-            "reference": "8a1ec96c4e519cee0fb971ea48a1eb7369dda54b",
+            "url": "https://api.github.com/repos/symfony/Process/zipball/9bbacbb3a7a27b17c0d51e2f126f59e0e588ad3a",
+            "reference": "9bbacbb3a7a27b17c0d51e2f126f59e0e588ad3a",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.3"
         },
-        "time": "2014-09-23 05:25:11",
+        "time": "2014-10-01 05:50:18",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1444,18 +1444,18 @@
     },
     {
         "name": "symfony/routing",
-        "version": "v2.5.5",
-        "version_normalized": "2.5.5.0",
+        "version": "v2.5.6",
+        "version_normalized": "2.5.6.0",
         "target-dir": "Symfony/Component/Routing",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/Routing.git",
-            "reference": "9bc38fe72e0eff61611e7cd4df3accbce20b1d36"
+            "reference": "c7e381f571aac1de9e06f2bac2097984c543096a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Routing/zipball/9bc38fe72e0eff61611e7cd4df3accbce20b1d36",
-            "reference": "9bc38fe72e0eff61611e7cd4df3accbce20b1d36",
+            "url": "https://api.github.com/repos/symfony/Routing/zipball/c7e381f571aac1de9e06f2bac2097984c543096a",
+            "reference": "c7e381f571aac1de9e06f2bac2097984c543096a",
             "shasum": ""
         },
         "require": {
@@ -1475,7 +1475,7 @@
             "symfony/expression-language": "For using expression matching",
             "symfony/yaml": "For using the YAML loader"
         },
-        "time": "2014-09-22 15:28:36",
+        "time": "2014-10-24 05:49:22",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1513,8 +1513,8 @@
     },
     {
         "name": "symfony/security-core",
-        "version": "v2.5.5",
-        "version_normalized": "2.5.5.0",
+        "version": "v2.5.6",
+        "version_normalized": "2.5.6.0",
         "target-dir": "Symfony/Component/Security/Core",
         "source": {
             "type": "git",
@@ -1577,18 +1577,18 @@
     },
     {
         "name": "symfony/translation",
-        "version": "v2.5.5",
-        "version_normalized": "2.5.5.0",
+        "version": "v2.5.6",
+        "version_normalized": "2.5.6.0",
         "target-dir": "Symfony/Component/Translation",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/Translation.git",
-            "reference": "170c0d895616e1a6a35681ffb0b9e339f58ab928"
+            "reference": "362fe4da2cfe587f72d57aaa2f89e6b61c05dedf"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Translation/zipball/170c0d895616e1a6a35681ffb0b9e339f58ab928",
-            "reference": "170c0d895616e1a6a35681ffb0b9e339f58ab928",
+            "url": "https://api.github.com/repos/symfony/Translation/zipball/362fe4da2cfe587f72d57aaa2f89e6b61c05dedf",
+            "reference": "362fe4da2cfe587f72d57aaa2f89e6b61c05dedf",
             "shasum": ""
         },
         "require": {
@@ -1603,7 +1603,7 @@
             "symfony/config": "",
             "symfony/yaml": ""
         },
-        "time": "2014-09-23 05:25:11",
+        "time": "2014-10-01 05:50:18",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1635,8 +1635,8 @@
     },
     {
         "name": "symfony/filesystem",
-        "version": "v2.5.5",
-        "version_normalized": "2.5.5.0",
+        "version": "v2.5.6",
+        "version_normalized": "2.5.6.0",
         "target-dir": "Symfony/Component/Filesystem",
         "source": {
             "type": "git",
@@ -1681,5 +1681,213 @@
         ],
         "description": "Symfony Filesystem Component",
         "homepage": "http://symfony.com"
+    },
+    {
+        "name": "intervention/image",
+        "version": "1.6.5",
+        "version_normalized": "1.6.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Intervention/image.git",
+            "reference": "432f3b28ea08455146b157c6bfdebf4ef5bc661e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Intervention/image/zipball/432f3b28ea08455146b157c6bfdebf4ef5bc661e",
+            "reference": "432f3b28ea08455146b157c6bfdebf4ef5bc661e",
+            "shasum": ""
+        },
+        "require": {
+            "ext-gd": "*",
+            "illuminate/support": "4.*",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.1.*"
+        },
+        "suggest": {
+            "intervention/imagecache": "Caching extension for the Intervention Image library"
+        },
+        "time": "2014-06-07 16:25:27",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Intervention\\Image": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Oliver Vogel",
+                "email": "oliver@olivervogel.net",
+                "homepage": "http://olivervogel.net/"
+            }
+        ],
+        "description": "Image handling and manipulation library with support for Laravel 4 integration",
+        "homepage": "http://image.intervention.io/",
+        "keywords": [
+            "gd",
+            "image",
+            "laravel",
+            "thumbnail",
+            "watermark"
+        ]
+    },
+    {
+        "name": "intervention/imagecache",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Intervention/imagecache.git",
+            "reference": "4163dd89e6892e577084295488bbe9f34deb5ef2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Intervention/imagecache/zipball/4163dd89e6892e577084295488bbe9f34deb5ef2",
+            "reference": "4163dd89e6892e577084295488bbe9f34deb5ef2",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/cache": "4.*",
+            "illuminate/filesystem": "4.*",
+            "illuminate/support": "4.*",
+            "intervention/image": "~1.3",
+            "jeremeamia/superclosure": "1.*",
+            "php": ">=5.3.0"
+        },
+        "time": "2014-05-21 10:35:53",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Intervention\\Image": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Oliver Vogel",
+                "email": "oliver@olivervogel.net",
+                "homepage": "http://olivervogel.net/"
+            }
+        ],
+        "description": "Caching extension for the Intervention Image Class",
+        "homepage": "http://intervention.olivervogel.net/image/advanced/caching",
+        "keywords": [
+            "cache",
+            "gd",
+            "image",
+            "laravel"
+        ]
+    },
+    {
+        "name": "roumen/sitemap",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/RoumenDamianoff/laravel-sitemap.git",
+            "reference": "920ae90f9a6093086c965b5cb6fa872bf5b9ab81"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/RoumenDamianoff/laravel-sitemap/zipball/920ae90f9a6093086c965b5cb6fa872bf5b9ab81",
+            "reference": "920ae90f9a6093086c965b5cb6fa872bf5b9ab81",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "~4",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "3.7.*"
+        },
+        "time": "2014-09-11 13:38:05",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Roumen\\Sitemap": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Roumen Damianoff",
+                "email": "roumen@dawebs.com",
+                "homepage": "http://roumen.it",
+                "role": "Developer"
+            }
+        ],
+        "description": "A simple sitemap generator for Laravel.",
+        "homepage": "http://roumen.it/projects/laravel-sitemap",
+        "keywords": [
+            "Sitemap",
+            "laravel"
+        ]
+    },
+    {
+        "name": "cviebrock/eloquent-sluggable",
+        "version": "1.0.8",
+        "version_normalized": "1.0.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cviebrock/eloquent-sluggable.git",
+            "reference": "5de065129caaaea632a294329127d923a429e235"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/cviebrock/eloquent-sluggable/zipball/5de065129caaaea632a294329127d923a429e235",
+            "reference": "5de065129caaaea632a294329127d923a429e235",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/config": "4.*",
+            "illuminate/database": "4.*",
+            "illuminate/support": "4.*",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "laravelbook/ardent": "dev-master",
+            "orchestra/testbench": "2.0.*",
+            "phpunit/phpunit": "3.7.*"
+        },
+        "time": "2014-02-20 21:29:26",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Cviebrock\\EloquentSluggable": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Colin Viebrock",
+                "email": "colin@viebrock.ca",
+                "homepage": "https://github.com/cviebrock"
+            }
+        ],
+        "description": "Easy creation of slugs for your Eloquent models in Laravel 4.",
+        "homepage": "https://github.com/cviebrock/eloquent-sluggable",
+        "keywords": [
+            "eloquent",
+            "laravel",
+            "slug"
+        ]
     }
 ]

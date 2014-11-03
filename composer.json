@@ -4,7 +4,11 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+		"cviebrock/eloquent-sluggable": "1.*",
+		"intervention/image": "1.*",
+		"intervention/imagecache": "1.*",
+		"roumen/sitemap": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
