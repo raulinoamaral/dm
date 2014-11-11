@@ -427,6 +427,8 @@ return array(
     'Illuminate\\Workbench\\PackageCreator' => $vendorDir . '/laravel/framework/src/Illuminate/Workbench/PackageCreator.php',
     'Illuminate\\Workbench\\Starter' => $vendorDir . '/laravel/framework/src/Illuminate/Workbench/Starter.php',
     'Illuminate\\Workbench\\WorkbenchServiceProvider' => $vendorDir . '/laravel/framework/src/Illuminate/Workbench/WorkbenchServiceProvider.php',
+    'Imagen' => $baseDir . '/app/models/Imagen.php',
+    'ImagenController' => $baseDir . '/app/controllers/ImagenController.php',
     'Intervention\\Image\\CachedImage' => $vendorDir . '/intervention/imagecache/src/Intervention/Image/CachedImage.php',
     'Intervention\\Image\\Exception\\BrightnessOutOfBoundsException' => $vendorDir . '/intervention/image/src/Intervention/Image/Exception/BrightnessOutOfBoundsException.php',
     'Intervention\\Image\\Exception\\ColorizeOutOfBoundsException' => $vendorDir . '/intervention/image/src/Intervention/Image/Exception/ColorizeOutOfBoundsException.php',
