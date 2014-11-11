@@ -39,39 +39,57 @@
 			<div class="col-sm-4">
 				<div class="border-top">
 					<ol class="breadcrumb">
-						<li><a href="#" title="">Portafolio</a></li>
-						<li><a href="#" title="">Tipo</a></li>
-						<li class="active">Nombre proyecto</li>
+						<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+							<a href="{{ asset('portafolio') }}" title="Todos los proyectos" itemprop="url">
+								<span itemprop="title">Portafolio<span>
+							</a>
+						</li>
+						<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+							<a href="{{ $proyecto->categoria->getLink() }}" title="Todos los proyectos de {{ $proyecto->categoria->nombre }}" itemprop="url">
+								<span itemprop="title">{{ $proyecto->categoria->nombre }}</span>
+							</a>
+						</li>
+						<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="active">
+							<span itemprop="title">{{ $proyecto->titulo }}</span>
+						</li>
 					</ol>
 					<article>
-						<h1>Nombre proyectos</h1>
-						<p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor.</p>
+						<h1>{{ $proyecto->titulo }}</h1>
+						<p>{{ nl2br($proyecto->descripcion) }}</p>
 						<table class="table">
+							@if($proyecto->ubicacion != '')
 							<tr>
 								<td>Ubicaci&oacute;n</td>
-								<td>La Paloma</td>
+								<td>{{ $proyecto->ubicacion }}</td>
 							</tr>
+							@endif
+							@if($proyecto->superficie != '')
 							<tr>
 								<td>Superficie</td>
-								<td>129 m&sup2;</td>
+								<td>{{ $proyecto->superficie }} m&sup2;</td>
 							</tr>
+							@endif
+							@if($proyecto->ano != '')
 							<tr>
 								<td>A&ntilde;o</td>
 								<td>2012</td>
 							</tr>
+							@endif
 						</table>
 					</article>
 				</div>
 			</div>
+			@if(!$proyecto->imagenes->isEmpty())
 			<div class="col-sm-8">
 				<section id="galeria" class="border-top">
-					<a href="{{ asset('img/proyecto-casa-3.jpg') }}"><img src="{{ asset('img/proyecto-casa-3.jpg') }}" class="img-responsive img-destacada"></a>
-					<a href="{{ asset('img/las-eduardas-render.jpg') }}"><img src="{{ asset('img/las-eduardas-render.jpg') }}" class="img-responsive"></a>
-					<a href="{{ asset('img/las-eduardas-render.jpg') }}"><img src="{{ asset('img/las-eduardas-render.jpg') }}" class="img-responsive"></a>
-					<a href="{{ asset('img/las-eduardas-render.jpg') }}"><img src="{{ asset('img/las-eduardas-render.jpg') }}" class="img-responsive"></a>
-					<a href="{{ asset('img/las-eduardas-render.jpg') }}"><img src="{{ asset('img/las-eduardas-render.jpg') }}" class="img-responsive"></a>
+					<a href="{{ $proyecto->fotoPortada()->getBigSrc() }}"><img src="{{ $proyecto->fotoPortada()->getPdaSrc() }}" class="img-responsive img-destacada"></a>
+					@foreach($proyecto->imagenesRestantes() as $imagen)
+					<a href="{{ $imagen->getBigSrc() }}"><img src="{{ $imagen->getMinSrc() }}" class="img-responsive"></a>
+					@endforeach
 				</section>
 			</div>
+			@endif
+
 		</div>
 	</div>
 @stop

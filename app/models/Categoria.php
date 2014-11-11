@@ -15,7 +15,7 @@ class Categoria extends  Eloquent
 
     public function getLink()
     {
-    	return asset('proyectos/'.$this->slug);
+    	return asset('portafolio/'.$this->slug);
     }
 
 }

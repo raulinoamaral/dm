@@ -1,5 +1,6 @@
 $(function(){
 
+<<<<<<< HEAD
 	$('#proyectos').mixItUp(
 		callbacks: {
 		onMixLoad: function(){
@@ -10,6 +11,17 @@ $(function(){
     	      $('#proyectos').mixitup('filter', noHash);
       		}
     	}
+=======
+	
+	var filterOnLoad = window.location.hash ? '.'+(window.location.hash).replace('#','') : 'all';
+
+
+	$('#proyectos').mixItUp({
+		load: {
+			filter: filterOnLoad
+		}
+	});
+>>>>>>> FETCH_HEAD
 
 		
 }
