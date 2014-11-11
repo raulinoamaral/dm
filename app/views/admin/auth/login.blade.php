@@ -3,7 +3,7 @@
 <section class="container">
     <div id="wrapper-login">
         <div id="logo-login">
-            <a href="/" title="Ir a bgarquitectos.com.uy" target="_blank"><img src="{{ asset('img/benech-gerez-arquitectos.png') }}" alt="Benech Gerez Arquitectos &amp; Asociados" /></a>
+            <a href="/" title="Ir a decarlinimaside.com.uy" target="_blank"><img src="{{ asset('img/decarlini-maside-arquitectos.png') }}" alt="Decarlini Maside" class="img-responsive" /></a>
         </div>
         {{ Form::open( array('id'=>'formLogin', 'class'=>'formulario', 'method' => 'POST', 'url' => 'autenticar')) }}
             {{ Form::label('Usuario') }}

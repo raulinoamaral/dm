@@ -27,9 +27,9 @@
 				<section id="proyectos">
 					@foreach($proyectos as $proyecto)
 						<div>
-							<div class="resultado-proyecto border-top">
-								<h2><a href="{{ $proyecto->getLink() }}">{{ $proyecto->titulo }}</a></h2>
-								<img src="{{ $proyecto->getFotoResultadoSrc() }}" class="img-responsive">
+							<div class="resultado-proyecto">
+								<h2 class="border-top"><a href="{{ $proyecto->getLink() }}" title="{{ $proyecto->titulo }}">{{ $proyecto->titulo }}</a></h2>
+								<a href="{{ $proyecto->getLink() }}" title="{{ $proyecto->titulo }}"><img src="{{ $proyecto->getFotoResultadoSrc() }}" class="img-responsive"></a>
 								<p>{{ $proyecto->descripcion_corta }}</p>	
 							</div>
 						</div>
