@@ -18,5 +18,10 @@ class Imagen extends  Eloquent
         return asset($this->ruta.'big/'.$this->nombre_archivo);
     }
 
+    public function getPdaSrc()
+    {
+        return asset($this->ruta.'pda/'.$this->nombre_archivo);
+    }
+
 }
 ?>

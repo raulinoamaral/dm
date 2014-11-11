@@ -9,11 +9,11 @@ class ProyectoController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
-		$title = 'Portafolio - Decarlini Maside Arquitectura y Dise&ntilde;o - Rocha, Uruguay';
+		$title = 'Decarlini Maside Arquitectura y Dise&ntilde;o - Rocha, Uruguay';
 		$meta_description = '';
-		$proyectos = Proyecto::OrderBy('orden')->get();
-		return View::make('web.portafolio', array('title' => $title, 'meta_description' => $meta_description, 'proyectos' => $proyectos));
+		$proyectos = Proyecto::OrderBy('orden')->paginate(2);
+		$categorias = Categoria::all();
+		return View::make('web.portafolio', array('title' => $title, 'meta_description' => $meta_description, 'proyectos' => $proyectos, 'categorias' => $categorias));
 	}
 
 
@@ -57,8 +57,7 @@ class ProyectoController extends \BaseController {
 		
 		$carpeta = public_path(). '/img/proyectos/' . $proyecto->id . '/';
 		mkdir($carpeta . '/min/', 0777, true);
-		mkdir($carpeta . '/list/', 0777, true);
-		mkdir($carpeta . '/mid/', 0777, true);
+		mkdir($carpeta . '/pda/', 0777, true);
 		mkdir($carpeta . '/big/', 0777, true);
 		//HomeController::sitemap();
 		return Response::json(['success' => true, 'proyecto' => $proyecto]);
@@ -111,22 +110,37 @@ class ProyectoController extends \BaseController {
 
 				//BIG ONE
 				$archivo = Image::make($imagen->getRealPath());
-				$archivo->grab(1024, 768);
+				if($archivo->width > 1024 || $archivo->height > 768)
+				{
+					if($archivo->width > $archivo->height)
+					{
+						//es apaisada, entonces:
+						$archivo->resize(1024, null, function()
+						{
+							$constraint->aspectRatio();
+							
+						});
+					}
+					else
+					{
+						//es vertical, entonces:
+						$archivo->resize(null, 1024, function()
+						{
+							$constraint->aspectRatio();
+						});	
+					}
+				}
 				$archivo->save(public_path() . '/' . $carpeta . 'big/' . $nombreArchivo, 90);
 
-				//MID ONE
+				//PORTADA ONE
 				$archivo = Image::make($imagen->getRealPath());
-				$archivo->grab(575, 575);
-				$archivo->save(public_path() . '/' . $carpeta . 'mid/' . $nombreArchivo, 90);
+				$archivo->grab(750, 252);
+				$archivo->save(public_path() . '/' . $carpeta . 'pda/' . $nombreArchivo, 90);
 
-				//LIST ONE
-				$archivo = Image::make($imagen->getRealPath());
-				$archivo->grab(400, 272);
-				$archivo->save(public_path() . '/' . $carpeta . 'list/' . $nombreArchivo, 90);
-
+				
 				//MIN ONE
 				$archivo = Image::make($imagen->getRealPath());
-				$archivo->grab(285, 285);
+				$archivo->grab(375, 252);
 				$archivo->save(public_path() . '/' . $carpeta . 'min/' . $nombreArchivo, 90);
 
 				$registro = new Imagen;
@@ -200,49 +214,33 @@ class ProyectoController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($categoriaSlug, $programaSlug, $proyectoSlug)
+	public function show($categoriaSlug, $proyectoSlug)
 	{
-		$programa = Programa::where('slug', '=', $programaSlug)->first();
-		if(!$programa)
+		$categoria = Categoria::where('slug', '=', $categoriaSlug)->first();
+		if($categoria)
 		{
-			foreach(SlugPrograma::all() as $slug)
+			$proyecto = Proyecto::where('slug', '=', $proyectoSlug)->first();
+			if(!$proyecto)
 			{
-				if($slug->slug == $programaSlug)
-					$programa = $slug->programa;
-			}
-			if($programa)
-			{
-				$proyecto = Proyecto::where('slug', '=', $proyectoSlug)->first();
-				if(!$proyecto)
+				foreach(SlugProyecto::all() as $slug)
 				{
-					foreach (SlugProyecto::all() as $slug)
+					if($slug->slug == $proyectoSlug)
 					{
-						if($slug->slug == $proyectoSlug)
-							$proyecto = $slug->proyecto;
+						$proyecto = $slug->proyecto;
+						return Redirect::to('portafolio/' . $categoriaSlug . '/' . $proyecto->slug, 301);
 					}
 				}
-				return Redirect::to('proyectos/' . $categoriaSlug . '/' . $programa->slug . '/' . $proyecto->slug, 301);
 			}
-			return Redirect::to('proyectos');
 		}
-		$proyecto = $programa->proyectos()->where('slug', '=', $proyectoSlug)->first();
-		if(!$proyecto)
+		else
 		{
-			foreach (SlugProyecto::all() as $slug)
-			{
-				if($slug->slug == $proyectoSlug)
-					$proyecto = $slug->proyecto;
-			}
-			if($proyecto)
-				return Redirect::to('proyectos/' . $categoriaSlug . '/' . $programa->slug . '/' . $proyecto->slug, 301);
-			else
-				return Redirect::to('proyectos');
+			return Redirect::to('portafolio');
 		}
-		$categoria = Categoria::where('slug', '=', $categoriaSlug)->first();
-		$proyecto = $programa->proyectos()->where('categoria_id', '=', $categoria->id)->where('slug', '=', $proyectoSlug)->first();
+		
+		//$proyecto = $categoria->proyectos()->where('categoria_id', '=', $categoria->id)->where('slug', '=', $proyectoSlug)->first();
 
-		$title = $proyecto->nombre.' - Benech Gerez Arquitectos &amp; Asociados';
-		return View::make('web.proyecto', array('title' => $title, 'meta_description' => $proyecto->descripcion_corta, 'proyecto' => $proyecto));	
+		$title = $proyecto->titulo.' - Benech Gerez Arquitectos &amp; Asociados';
+		return View::make('web.ficha', array('title' => $title, 'meta_description' => $proyecto->descripcion_corta, 'proyecto' => $proyecto));	
 
 	}
 
@@ -415,8 +413,7 @@ class ProyectoController extends \BaseController {
 			foreach($proyecto->imagenes as $foto)
 			{
 				File::delete(public_path() . '/' . $foto->ruta . 'min/' . $foto->nombre_archivo);
-				File::delete(public_path() . '/' . $foto->ruta . 'list/' . $foto->nombre_archivo);
-				File::delete(public_path() . '/' . $foto->ruta . 'mid/' . $foto->nombre_archivo);
+				File::delete(public_path() . '/' . $foto->ruta . 'pda/' . $foto->nombre_archivo);
 				File::delete(public_path() . '/' . $foto->ruta . 'big/' . $foto->nombre_archivo);
 	           	Foto::destroy($foto->id);
 			}

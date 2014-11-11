@@ -13,7 +13,9 @@
 
 Route::get('/', 'HomeController@showIndex');
 
-Route::get('/portafolio', 'HomeController@showPortafolio');
+Route::get('/portafolio/{slugCategoria}/{slugProyecto}', 'ProyectoController@show');
+
+Route::get('/portafolio', 'ProyectoController@index');
 
 Route::get('/ficha', 'HomeController@showFicha');
 

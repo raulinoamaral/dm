@@ -54,12 +54,12 @@ class Proyecto extends  Eloquent
 
 	public function getLink()
 	{
-		return asset('proyectos/' . $this->categoria->slug . '/' .$this->slug);
+		return asset('portafolio/' . $this->categoria->slug . '/' .$this->slug);
 	}
 
 	public function getLinkCategoria()
 	{
-		return asset('proyectos/' . $this->categoria->slug);
+		return asset('portafolio/' . $this->categoria->slug);
 	}
 
 	public function getLinkEditarProyecto()
@@ -73,21 +73,26 @@ class Proyecto extends  Eloquent
 
 	public function getFotoResultadoSrc()
 	{
-		$foto = $this->fotos()->OrderBy('orden')->get()->first();
+		$foto = $this->imagenes()->OrderBy('orden')->get()->first();
 		if($foto)
-			return asset($foto->ruta.'list/'.$foto->nombre_archivo);
+			return asset($foto->ruta.'min/'.$foto->nombre_archivo);
 		else
 			return asset('img/proyecto-sin-img.jpg');
 	}
 
-	/*public function fotoPortada()
+	public function fotoPortada()
 	{
-		$foto = $this->fotos()->OrderBy('orden')->get()->first();
+		$foto = $this->imagenes()->OrderBy('orden')->get()->first();
 		if($foto)
 		return $foto;
 	return null;
 	}
 
+	public function imagenesRestantes()
+	{
+		return $this->imagenes()->OrderBy('orden')->take(1000)->skip(1)->get();
+	}
+	/*
 	public function tieneFotos()
 	{
 		if($this->fotos()->count() > 0)

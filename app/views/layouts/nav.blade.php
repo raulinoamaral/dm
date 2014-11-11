@@ -14,10 +14,10 @@
       		</div>
 			<nav id="menu" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a {{ Request::path() == 'portafolio' ? 'class="active"' : 'href="portafolio" title="Portafolio de trabajos"' }}>Portafolio</a></li>
-					<li><a {{ Request::path() == 'servicios' ? 'class="active"' : 'href="servicios" title="Servicios"' }}>Servicios</a></li>
-					<li><a {{ Request::path() == 'estudio' ? 'class="active"' : 'href="/estudio" title="Estudio de arquitectos"' }}>Estudio</a></li>
-					<li><a {{ Request::path() == 'contacto' ? 'class="active"' : 'href="contacto" title="Env&iacute;enos su consulta"' }}>Contacto</a></li>
+					<li><a {{ Request::path() == 'portafolio' ? 'class="active"' : 'href="'.asset('portafolio').'" title="Portafolio de trabajos"' }}>Portafolio</a></li>
+					<li><a {{ Request::path() == 'servicios' ? 'class="active"' : 'href="'.asset('servicios').'" title="Servicios"' }}>Servicios</a></li>
+					<li><a {{ Request::path() == 'estudio' ? 'class="active"' : 'href="'.asset('estudio').'" title="Estudio de arquitectos"' }}>Estudio</a></li>
+					<li><a {{ Request::path() == 'contacto' ? 'class="active"' : 'href="'.asset('contacto').'" title="Env&iacute;enos su consulta"' }}>Contacto</a></li>
 				</ul>
 			</nav>
         </div>
