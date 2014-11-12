@@ -39,7 +39,7 @@ li.usuario a{
 	color: #333 !important;
 }
 #wrapper-login{
-	width: 280px;
+	width: 370px;
 	padding: 15px;
 	border: 1px solid #F3F3F3;
 	margin: 10px auto 0 auto;
@@ -105,6 +105,10 @@ input[type="checkbox"] {
 }
 .input-group input, .input-group-addon{
 	border-radius: 0;
+}
+#botonIngresar{
+	background-color: #005DBD;
+	border-color: #005DBD; 
 }
 input#botonIngresar.btn, #botonRecuperar, #botonGuardar{
 	margin: 15px auto;

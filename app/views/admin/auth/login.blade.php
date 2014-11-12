@@ -13,7 +13,7 @@
             <a href="{{ asset('admin/recuperar-clave') }}" title="&iquest;Olvid&oacute; su clave?" class="olvido-clave">&iquest;Olvid&oacute; su clave?</a>
             {{ Form::submit('Iniciar sesi&oacute;n', array('id'=>'botonIngresar', 'class' => 'btn btn-success')) }}
         {{ Form::close() }}
-        <span>Sistema desarrollado por <a href="http://balloon.com.uy" title="Ir a balloon.com.uy" target="_blank"> balloon</a></span>
+        <span>Aplicaci&oacute;n desarrollada por <a href="http://balloon.com.uy" title="Ir a balloon.com.uy" target="_blank"> balloon</a></span>
     </div>
 </section>
 @stop
