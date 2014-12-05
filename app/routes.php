@@ -15,6 +15,8 @@ Route::get('/', 'HomeController@showIndex');
 
 Route::get('/portafolio/{slugCategoria}/{slugProyecto}', 'ProyectoController@show');
 
+Route::get('/portafolio/{slugCategoria}', 'ProyectoController@indexCategoria');
+
 Route::get('/portafolio', 'ProyectoController@index');
 
 Route::get('/ficha', 'HomeController@showFicha');
@@ -52,11 +54,34 @@ Route::group(array('prefix'=>'/api'),function(){
 
 Route::group(array('before' => 'auth'), function()
 {
+	//API PROYECTOS
+	Route::get('api/proyectos/{id}', 'ProyectoController@getItem');
+	Route::put('api/proyectos/{id}', 'ProyectoController@update');
+	Route::get('api/proyectos', 'ProyectoController@ApiIndex');
+	Route::post('api/proyectos', 'ProyectoController@store');
+	Route::get('api/proyectos/{id}/eliminar', 'ProyectoController@destroy');
+
+
+	//API CATEGORÍAS
+	Route::get('api/categorias/{id}', 'CategoriaController@getItem');
+	Route::get('api/categorias', 'CategoriaController@ApiIndex');
+
+	//API IMÁGENES
+	Route::get('api/imagenes/{id}/eliminar', 'ImagenController@destroy');
+	Route::get('api/proyectos/{id}/eliminarImagenes', 'ProyectoController@eliminarImagenes');
+
+	//API USUARIO
+	Route::get('api/usuario', 'AuthController@getUsuario');
+
+	//API USUARIO
+	Route::post('api/usuario/actualizarDatos', 'AuthController@update');
+
+
 	Route::get('admin', 'AdminController@showIndex');
 	//Route::get('admin/configuracion', 'AdminController@showConfig');
 	//Route::post('admin/cambiarClave', 'AuthController@updateClave');
 
-	Route::get('admin/proyectos/nuevo', 'ProyectoController@create');
+	//Route::get('admin/proyectos/nuevo', 'ProyectoController@create');
 	Route::post('admin/proyectos/guardar', 'ProyectoController@store');
 	Route::post('admin/proyectos/ordenar', 'ProyectoController@ordenar');
 	Route::get('admin/proyectos/{id}/editar', 'ProyectoController@edit');
@@ -64,7 +89,9 @@ Route::group(array('before' => 'auth'), function()
 	Route::post('admin/proyecto/eliminar', 'ProyectoController@destroy');
 	Route::get('admin/proyectos/{id}/galeria', 'ProyectoController@gallery');
 	Route::post('admin/proyectos/{id}/galeria/cargarImagenes', 'ProyectoController@cargarImagenes');
+	Route::post('admin/proyectos/{id}/galeria/ordenar', 'ImagenController@update');
+	Route::post('cargarImagenes/{id}', 'ProyectoController@cargarImagenes');
 	Route::post('admin/imagenes/ordenar', 'ImagenController@update');
-	Route::post('admin/imagenes/eliminar', 'ImagenController@destroy');
+	//Route::post('admin/imagenes/eliminar', 'ImagenController@destroy');
 	Route::post('admin/imagenes/eliminarTodas', 'ProyectoController@eliminarImagenes');		
 });

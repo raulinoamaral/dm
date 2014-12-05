@@ -1,0 +1,84 @@
+<script src="http://decarlinimaside.com/js/jquery.ui.widget.js"></script>
+
+	<script src="http://decarlinimaside.com/js/load-image.all.min.js"></script>
+
+	<script src="http://decarlinimaside.com/js/canvas-to-blob.min.js"></script>
+
+	<script src="http://decarlinimaside.com/js/jquery.iframe-transport.js"></script>
+
+	<script src="http://decarlinimaside.com/js/jquery.fileupload.js"></script>
+
+	<script src="http://decarlinimaside.com/js/jquery.fileupload-process.js"></script>
+
+	<script src="http://decarlinimaside.com/js/jquery.fileupload-image.js"></script>
+
+	<script src="http://decarlinimaside.com/js/jquery.fileupload-validate.js"></script>
+
+	<script src="http://decarlinimaside.com/js/jquery.ui.touch-punch.min.js"></script>
+<div ng-controller="GaleriaProyectoController as ProyectoCtrl">
+<h1>Galería del proyecto "(( proyecto.titulo ))"</h1>
+	
+		<form method="POST" enctype="multipart/form-data" data-file-upload="ProyectoCtrl.options">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="fileContainer">
+						Examinar imágenes <span class="glyphicon glyphicon-plus"></span>
+						<input ng-model="files" id="files" multiple="multiple" accept="image/gif, image/jpeg" name="files[]" type="file">
+					</div>
+					<h2 id="porcentual"></h2>
+				</div>
+			</div>
+			<div class="progress">
+      			<div id="progreso" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+    		</div>
+		</form>
+			<p id="imagen-ppal" ng-show="proyecto.imagenes.length > 0">Imagen principal</p>
+			<div id="galeria-ordenada">
+				<ul id="contenedorImagenes" class="selector">
+					<li id="orden_(( imagen.id ))" ng-repeat="imagen in proyecto.imagenes | orderObjectBy: 'orden'" ng-init="parseOrden(imagen)">
+						<img ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ng-src="(( ProyectoCtrl.getImagenSrc(imagen) ))" height="285px" class="img-responsive" />
+						<div ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()" ng-click="ProyectoCtrl.openBorrarFoto(imagen)" ng-show="hoverImagen" class="eliminar glyphicon glyphicon-trash" data-toggle="modal" data-target="#modalBorrarFoto"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+			<div class="row">
+				<div class="col-sm-offset-6">
+					<div class="row">
+						<div class="col-sm-4 right">
+							<a ng-href="admin#/" title="Ir al listado" class="btn btn-success guardar right " role="button" target="_self">Listo</a>
+						</div>
+						<div class="col-sm-4 right">
+							<a title="Eliminar todas las im&aacute;genes de este proyecto" ng-show="proyecto.imagenes.length > 0" ng-click="ProyectoCtrl.openBorrarFotos()" class="btn btn-danger guardar right " role="button">Eliminar todas las imágenes</a>
+						</div>
+						<div class="col-sm-4 right">
+							<a title="Ver p&aacute;gina del proyecto" ng-href="http://decarlinimaside.com/portafolio/(( proyecto.categoria.slug ))/(( proyecto.slug ))" class="btn btn-info guardar right" role="button" target="_blank">Ver proyecto</a>
+						</div>
+					</div>
+	        		
+	        	</div>
+			</div>
+		</div>
+		<div>
+	<script type="text/ng-template" id="modalBorrarFoto.html">
+		<div class="modal-header">
+	        <h3 class="modal-title">&iquest;Seguro desea eliminar esta imagen?</h3>
+	    </div>
+	    <div class="modal-body">
+	        <img ng-src="(( ProyectoCtrl.getImagenSrc(imagen) ))" height="40px" class="img-responsive" />
+	    </div>
+	    <div class="modal-footer">
+	        <button class="btn btn-danger" ng-click="eliminarFoto()">Eliminar</button>
+	        <button class="btn btn-warning" ng-click="cancelar()">Cancelar</button>
+	    </div>
+    </script>
+    <script type="text/ng-template" id="modalBorrarFotos.html">
+		<div class="modal-header">
+	        <h3 class="modal-title">&iquest;Seguro desea eliminar todas las im&aacute;genes?</h3>
+	    </div>
+	    <div class="modal-footer">
+	        <button class="btn btn-danger" ng-click="eliminarFotos()">Eliminar todas</button>
+	        <button class="btn btn-warning" ng-click="cancelar()">Cancelar</button>
+	    </div>
+    </script>
+</div>

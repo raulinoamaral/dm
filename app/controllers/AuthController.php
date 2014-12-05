@@ -30,11 +30,58 @@ class AuthController Extends BaseController
 		return Redirect::to('admin');
 	}
 
+	public function getUsuario()
+	{
+		return Response::json(array(
+						'success' => true,
+						'usuario'    => Auth::User()
+						));
+	}
+
 	public function nuevaClave()
 	{
 		return View::make('admin/usuario/nuevaClave')->with('title', 'Cambio de clave - Decarlini Maside Arquitectura y Dise&ntilde;o');
 	}
 
+
+	//
+	public function update()
+	{
+		$user = Auth::user();
+		$clave = Input::get('usuario.clave');
+
+		//return Response::json(array('clave' => $clave));
+		$claveNueva = Input::get('usuario.claveNueva');
+		$claveNuevaConfirmada = Input::get('usuario.claveNueva_confirmation');
+		if(Hash::check($clave, $user->password))
+		{
+			$validator = User::validate(Input::only('usuario.claveNueva', 'usuario.claveNueva_confirmation'));
+			if($validator->passes())
+			{
+				$user->password = Hash::make($claveNueva);
+				$user->save();
+				return Response::json(array(
+					'ok' => true,
+					'valida'    => true
+					));
+			}
+			else
+			{
+				return Response::json(array(
+					'ok' => true,
+					'valida'	  => false
+					));
+			}
+		}
+		else
+		{
+			return Response::json(array(
+					'ok' => false,
+					'valida'    => false
+					));
+		}
+	}
+	//
 
 	public function updateClave()
 	{

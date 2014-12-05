@@ -9,20 +9,25 @@
         {{ HTML::style('css/bootstrap.css') }}
         {{ HTML::style('css/estilo-admin.css') }}
     @show
-
-    @section('script')
-        {{ HTML::script('js/jquery-1.11.1.min.js') }}
-        {{ HTML::script('js/angular.min.js') }}
-        {{ HTML::script('js/angular-route.min.js') }}
-        {{ HTML::script('js/bootstrap.min.js') }}
-        {{ HTML::script('js/app.js') }}
-        {{ HTML::script('js/panel.js') }}
-    @show
 </head>
 <body>
     @yield('content')
-    @if(Request::path() != 'admin/login' && Request::path() != 'admin/recuperar-clave' && !Request::is('password*'))
-        @include('admin/layouts.footer')
-    @endif
+    
+    @section('script')
+        {{ HTML::script('js/jquery-1.11.1.min.js') }}
+        {{ HTML::script('js/angular.js') }}
+        {{ HTML::script('js/bootstrap.min.js') }}
+        {{ HTML::script('js/ui-bootstrap-tpls-0.10.0.js') }}
+        {{ HTML::script('js/jquery-ui.min.js') }}
+        {{ HTML::script('js/jquery.ui.touch-punch.min.js') }}
+        {{ HTML::script('js/angular-animate.js') }}
+        {{ HTML::script('js/angular-route.js') }}
+        {{ HTML::script('js/angular-resource.js') }}
+        {{ HTML::script('js/jquery.fileupload-angular.js') }}
+        {{ HTML::script('js/app.js') }}
+        {{ HTML::script('js/services.js') }}
+        {{ HTML::script('js/controllers.js') }}
+        {{ HTML::script('js/panel.js') }}
+    @show
 </body>
 </html>

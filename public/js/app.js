@@ -1,48 +1,49 @@
-(function()
-{
-  'use strict';
+
   var rutaAbsoluta = 'http://decarlinimaside.com/';
-  var DMApp = angular.module('DMApp', ['ngRoute'], function($interpolateProvider)
+  var DMApp = angular.module('DMApp', [
+    'ngRoute',
+    'ngAnimate',
+    'DMControllers',
+    'DMServices'], function($interpolateProvider)
   {
     $interpolateProvider.startSymbol('((');
     $interpolateProvider.endSymbol('))');
   });
 
-  DMApp.controller('ProyectoController', function($scope, $http, $location, $window){
-    
 
-    this.proyecto = {};
-    this.addProyecto = function()
-    {
-      $http.post(rutaAbsoluta + 'admin/proyectos/guardar', this.proyecto).
-      success(function(data)
-        {
-          console.log(data);
-          if(data.success)
-            {
-              $window.location.href = rutaAbsoluta + 'admin/proyectos/' + data.proyecto.id + '/galeria';
-            }//$location.path('/../'+ data.proyecto.id + '/galeria');
-        });
-      $window.location.href = 'http://www.google.com';
-      //window.alert('agregado');
-      this.proyecto = {};
-      this.submitted = false;
-    };
-  });
+  DMApp.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+    when('/', {
+        templateUrl: 'partials/proyectos/index.html'
+      }).
+      when('/proyectos/nuevo', {
+        templateUrl: 'partials/proyectos/nuevo.html'
+      }).
+      when('/proyectos/:proyectoId/editar', {
+        templateUrl: 'partials/proyectos/editar.html'
+      }).
+      when('/proyectos/:proyectoId/galeria', {
+        templateUrl: 'partials/proyectos/galeria.html'
+      }).
+      when('/configuracion', {
+        templateUrl: 'partials/proyectos/configuracion.html'
+      }).
+      otherwise({
+        redirectTo: '/'
+      });
+  }]);
 
-
-
-
-  //service
-/*  angular.module('proyectoService', [])
-  .factory('Proyecto', function($http)
-  {
-    return
-    {
-      save:function(proyecto)
-      {
-
-      }
-    }
-  });*/
-})();
+  DMApp.filter('orderObjectBy', function() {
+  return function(items, field, reverse) {
+    var filtered = [];
+    angular.forEach(items, function(item) {
+      filtered.push(item);
+    });
+    filtered.sort(function (a, b) {
+      return (a[field] > b[field] ? 1 : -1);
+    });
+    if(reverse) filtered.reverse();
+    return filtered;
+  };
+});

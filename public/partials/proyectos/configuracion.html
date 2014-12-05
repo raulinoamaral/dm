@@ -1,0 +1,44 @@
+<div ng-controller="UsuarioController as usuarioCtrl">
+<h1>Configuraci&oacute;n</h1>
+		<div class="row">
+			<div class="col-sm-4">
+				<h2>Datos de su usuario</h2>
+				<p>Usuario: (( usuario.username ))</p>
+				<p>Nombre: ((usuario.name))</p>
+				<p>E-mail: (( usuario.email ))</p>
+			</div>
+			<div class="col-sm-4">
+				<h2>Cambio de clave</h2>
+				<form name="formCambioClave" id="formCambioClave" novalidate ng-submit="formCambioClave.$valid && updateUsuario()">
+				<label>Clave actual</label>
+				<input ng-change="invalidarClave()" name="clave" id="clave" type="password" ng-model="usuario.clave" required="required">
+				<div class="alert alert-danger" ng-show="submitted && formCambioClave.clave.$invalid">
+		        	<span class="glyphicon glyphicon-remove"></span> Ingrese la clave actual.
+		        </div>
+		        <div ng-show="claveIncorrecta && submitted" class="alert alert-danger" ng-hide="claveValida">
+		        	<span class="glyphicon glyphicon-remove"></span> La clave no es correcta.
+		        </div>
+		        <label>Clave nueva</label>
+				<input name="claveNueva" id="claveNueva" type="password" ng-model="usuario.claveNueva" required="required" ng-change="evaluarNuevaClave()">
+				<div class="alert alert-danger" ng-show="submitted && formCambioClave.claveNueva.$invalid">
+		        	<span class="glyphicon glyphicon-remove"></span> Ingrese la nueva clave.
+		        </div>
+				<label>Confirmar nueva clave</label>
+				<input name="claveNueva_confirmation" id="claveNueva_confirmation" type="password" ng-model="usuario.claveNueva_confirmation" required="required" ng-change="evaluarNuevaClave()">
+				<div class="alert alert-danger" ng-show="submitted && formCambioClave.claveNueva_confirmation.$invalid">
+		        	<span class="glyphicon glyphicon-remove"></span> Confirme la nueva clave.
+		        </div>
+				<div ng-show="noCoinciden" class="alert alert-danger">
+		        	La clave nueva no es correcta / no coincide con la confirmaci&oacute;n.
+		        </div>
+		        <div ng-show="cambiada && !submitted" class="alert alert-success">
+		        	<span class="glyphicon glyphicon-ok"></span> La clave fue actualizada correctamente.
+		        </div>
+				<button ng-click="submitted=true" type="submit" title="Actualizar clave de su usuario" class="guardar btn btn-success"><span class="glyphicon glyphicon-lock"></span> Guardar</button>
+				<div id="claveActualizada" class="alert alert-success hidden">
+		        	<span class="glyphicon glyphicon-ok"></span> Clave actualizada correctamente.
+		        </div>
+	        	</form>
+			</div>
+		</div>
+	</div>

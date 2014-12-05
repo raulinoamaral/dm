@@ -1,0 +1,74 @@
+
+		<h1>Nuevo proyecto</h1>
+		<form name="formNuevoProyecto" id="formNuevoProyecto" novalidate ng-controller="NuevoProyectoController as proyectoCtrl" ng-submit="formNuevoProyecto.$valid && proyectoCtrl.storeProyecto()">
+			<div class="row">
+				<div class="col-sm-3">
+					<label for="T&iacute;tulo">T&iacute;tulo</label>
+					<input id="titulo" ng-model="proyectoCtrl.proyecto.titulo" required="required" name="titulo" type="text">
+					<div class="alert alert-danger" ng-show="proyectoCtrl.submitted && formNuevoProyecto.titulo.$invalid">
+			        	Escriba el t&iacute;tutlo del proyecto.
+			        </div>
+			    </div>
+				<div class="col-sm-3">
+					<label for="Ubicaci&oacute;n">Ubicaci&oacute;n</label>
+					<input id="ubicacion" ng-model="proyectoCtrl.proyecto.ubicacion" required="required" name="ubicacion" type="text">
+					<div class="alert alert-danger" ng-show="proyectoCtrl.submitted && formNuevoProyecto.ubicacion.$invalid">
+			        	Escriba la ubicaci&oacute;n del proyecto.
+			        </div>
+				</div>
+				<div class="col-sm-3">
+					<label for="Superficie">Superficie</label>
+					<div class="input-group">
+						<input id="superficie" class="form-control" ng-model="proyectoCtrl.proyecto.superficie" required="required" name="superficie" type="text">
+			  			<span class="input-group-addon">m&sup2;</span>
+					</div>
+					<div class="alert alert-danger" ng-show="proyectoCtrl.submitted && formNuevoProyecto.superficie.$invalid">
+			        	Escriba la superficie del proyecto.
+			        </div>
+				</div>
+				<div class="col-sm-3">
+					<label for="A&ntilde;o">A&ntilde;o</label>
+					<input id="ano" ng-model="proyectoCtrl.proyecto.ano" required="required" name="ano" type="text">
+					<div class="alert alert-danger" ng-show="proyectoCtrl.submitted && formNuevoProyecto.ano.$invalid">
+			        	Escriba el a&ntilde;o del proyecto.
+			        </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3">
+					<label for="Categor&iacute;a">Categor&iacute;a</label>
+					<select id="categoria" ng-model="proyectoCtrl.proyecto.categoria" required="required" name="categoria"><option value="" selected="selected">Seleccione una categor&iacute;a</option><option value="1">Complejos</option><option value="3">Reforma de viviendas</option><option value="2">Viviendas familiares</option></select>
+					<div class="alert alert-danger" ng-show="proyectoCtrl.submitted && formNuevoProyecto.categoria.$error.required">
+			        	Seleccione una categor&iacute;a.
+			        </div>
+				</div>
+				
+				
+			</div>
+			
+			
+			<div class="row">
+				<div class="col-sm-6">
+					<label for="">Descripci&oacute;n corta (160 caracteres recomendades) <span ng-show="formNuevoProyecto.descripcion_corta.$dirty" id="contadorDescripcionCorta">(( 160 - proyectoCtrl.proyecto.descripcion_corta.length ))</span></label>
+					<textarea id="descripcion_corta" ng-model="proyectoCtrl.proyecto.descripcion_corta" ng-trim="false" required="required" name="descripcion_corta" cols="50" rows="10"></textarea>
+					<div class="alert alert-danger" ng-show="proyectoCtrl.submitted && formNuevoProyecto.descripcion_corta.$error.required">
+			        	Escriba una descripción corta.
+			        </div>
+			    </div>
+			    <div class="col-sm-6">
+					<label for="Descripci&oacute;n completa">Descripci&oacute;n Completa</label>
+					<textarea id="descripcion" ng-model="proyectoCtrl.proyecto.descripcion" required="required" ng-trim="false" name="descripcion" cols="50" rows="10"></textarea>
+					<div class="alert alert-danger" ng-show="proyectoCtrl.submitted && formNuevoProyecto.descripcion.$error.required">
+			        	Escriba una descripción.
+			        </div>
+			    </div>
+	        </div>
+	        <div class="row">
+	        	<div class="col-xs-6 col-sm-2 right">
+	        		<input class="guardar btn btn-success" ng-click="proyectoCtrl.submitted=true" type="submit" value="GUARDAR">
+	        	</div>
+	        	<div class="col-xs-6 col-sm-2 right">
+	        		<a ng-href="/" class="btn btn-warning cancelar" role="button">CANCELAR</a>
+	        	</div>
+	        </div>
+		</form>

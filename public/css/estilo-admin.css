@@ -340,3 +340,82 @@ footer{
 .left{
 	float: left;
 }
+
+
+/*NG VIEW*/
+.at-view-fade-in.ng-enter {
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    transition-property: opacity;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+}
+
+.at-view-fade-in.ng-enter-active {
+    opacity: 1;
+}
+
+.at-view-fade-out.ng-leave {
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    transition-property: opacity;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 1;
+}
+
+.at-view-fade-out.ng-leave-active {
+    opacity: 0;
+}
+
+/*NG*/
+.at-repeat-fade-in.ng-enter, .at-repeat-fade-out.ng-leave {
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    transition-property: opacity;
+    -webkit-transition-duration: 300ms;
+    -moz-transition-duration: 300ms;
+    -o-transition-duration: 300ms;
+    transition-duration: 300ms;
+}
+
+.at-repeat-fade-in.ng-enter, .at-repeat-fade-out.ng-leave {
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    transition-property: opacity;
+    -webkit-transition-duration: 300ms;
+    -moz-transition-duration: 300ms;
+    -o-transition-duration: 300ms;
+    transition-duration: 300ms;
+}
+
+.at-repeat-fade-in.ng-enter {
+    opacity: 0;
+}
+
+.at-repeat-fade-in.ng-enter-active {
+    opacity: 1;
+}
+
+.at-repeat-fade-out.ng-leave {
+    opacity: 1;
+}
+
+.at-repeat-fade-out.ng-leave-active {
+    opacity: 0;
+}

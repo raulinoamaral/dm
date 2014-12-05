@@ -1,0 +1,67 @@
+
+		<h1>Gesti&oacute;n de proyectos</h1>
+
+		<div class="row">
+			<div class="col-sm-6">
+				<a title="Nuevo proyecto" href="#proyectos/nuevo" class="btn btn-primary" role="button">Nuevo proyecto <span class="glyphicon glyphicon-plus"></span></a>
+			</div>
+			<div class="col-sm-6"><input id="buscador" ng-model="buscador" placeholder="Buscar proyectos"></input></div>
+		</div>
+		<table id="sortable" class="table table-striped">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Categor&iacute;a</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody class="contenedorAOrdenar" ng-controller="ProyectoListaController as ProyectoCtrl">
+				<tr ng-init="parseOrden(proyecto)" class="at-repeat-fade-in
+         at-repeat-fade-out" ng-repeat="proyecto in ProyectoCtrl.proyectos  | orderBy:'orden' | filter:buscador" id="proyecto_(( proyecto.id ))">
+					<td class="nombre-proyecto">(( proyecto.titulo ))</td>
+					<td class="proyecto" id="nombre-proyecto-(( proyecto.id ))">(( proyecto.categoria.nombre ))</td>
+					<td class="botones">
+						<a target="_blank" ng-href="portafolio/(( proyecto.categoria.slug ))/(( proyecto.slug ))" title="Ver proyecto"><span class="glyphicon glyphicon-new-window ver-proyecto"></span></a>
+						<a target="_self" ng-href="admin#/proyectos/(( proyecto.id ))/editar" title="Editar proyecto"><span class="glyphicon glyphicon-pencil ver-proyecto"></span></a>
+						<a target="_self" ng-href="admin#/proyectos/(( proyecto.id ))/galeria" title="Editar galer&iacute;a"><span class="glyphicon glyphicon-picture ver-proyecto"></span></a>
+						<a ng-click="ProyectoCtrl.openBorrarProyecto(proyecto)" href="" target="_self" title="Eliminar proyecto"><span class="glyphicon glyphicon-trash ver-proyecto"></span></a>	
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<dir-pagination-controls></dir-pagination-controls>
+		</div>
+	</div>
+
+	<!-- Modal eliminar Proyecto -->
+	<div class="modal fade" id="modalEliminarProyecto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{{ Form::open(array('id' 		=> 'formBorrarProyecto',
+		   							'url' 		=> 'admin/proyecto/eliminar',
+		   							'onSubmit' 	=> 'return validarBorrarProyecto()',
+		   							'method'	=> 'post')) }}
+		   			{{ Form::input('hidden', 'idProyectoEliminar', '', array('id' => 'idProyectoEliminar')) }}
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+						<h4 id="nombreProyecto" class="modal-title"></h4>
+					</div>
+					<!--<div class="modal-body">
+						<p>IMPORTANTE: se eliminaran todos los proyectos bajo este programa.</p>
+					</div>-->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+						<button type="submit" class="btn btn-danger">Eliminar</button>
+					</div>
+				{{ Form::close() }}
+			</div>
+	<script type="text/ng-template" id="modalBorrarProyecto.html">
+		<div class="modal-header">
+	        <h3 class="modal-title">&iquest;Seguro desea eliminar el proyecto (( proyecto.titulo ))?</h3>
+	    </div>
+	    <div class="modal-footer">
+	        <button class="btn btn-danger" ng-click="eliminarProyecto()">Eliminar</button>
+	        <button class="btn btn-warning" ng-click="cancelar()">Cancelar</button>
+	    </div>
+    </script>
+		

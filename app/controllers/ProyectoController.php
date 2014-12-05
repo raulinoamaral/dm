@@ -16,6 +16,18 @@ class ProyectoController extends \BaseController {
 		return View::make('web.portafolio', array('title' => $title, 'meta_description' => $meta_description, 'proyectos' => $proyectos, 'categorias' => $categorias));
 	}
 
+	public function indexCategoria($slugCategoria)
+	{
+		$title = 'Decarlini Maside Arquitectura y Dise&ntilde;o - Rocha, Uruguay';
+		$categoria = Categoria::where('slug', '=', $slugCategoria)->first();
+		if(!$categoria)
+			return Redirect::to('portafolio', 301);
+		$meta_description = $categoria->descripcion;
+		$proyectos = $categoria->proyectos()->paginate(2);
+		$categorias = Categoria::all();
+		return View::make('web.categoria', array('title' => $title, 'meta_description' => $meta_description, 'categoria' => $categoria, 'proyectos' => $proyectos, 'categorias' => $categorias));
+	}
+
 
 	/**
 	 * Muestra formulario para crear un nuevo proyecto.
@@ -41,6 +53,7 @@ class ProyectoController extends \BaseController {
 		$proyecto->titulo = Input::get('titulo');
 		$proyecto->ubicacion = Input::get('ubicacion');
 		$proyecto->superficie = Input::get('superficie');
+		$proyecto->ano = Input::get('ano');
 		$proyecto->categoria_id = Input::get('categoria');
 		$proyecto->descripcion_corta = Input::get('descripcion_corta');
 		$proyecto->descripcion = Input::get('descripcion');
@@ -92,17 +105,12 @@ class ProyectoController extends \BaseController {
 	 */
 	public function cargarImagenes($id)
 	{
-		//echo "<pre>";
-		//var_dump(Input::all());
-		//echo "</pre>";
-		//print_r(Input::get('imagen'));
 		$proyecto = Proyecto::find($id);
 		$carpeta = 'img/proyectos/' . $proyecto->id . '/';
 		$contador = $proyecto->contadorFotos;
-
 		if($proyecto)
 		{
-			$imagen = Input::file('imagen')[Input::get('numeroImagen')];
+			$imagen = Input::file('files')[0];
 			if($imagen)
 			{
 				$extension = $imagen->getclientOriginalExtension();
@@ -154,9 +162,14 @@ class ProyectoController extends \BaseController {
 				$proyecto->contadorFotos = $proyecto->contadorFotos + 1;
 				$proyecto->user_id = Auth::user()->id;
 				$proyecto->save();
+				return Response::json(['success' => true, 'nuevaImagen' => $nuevaImagen]);
 			}
+			else
+			{
+				return Response::json(['success' => false]);
+			}
+		}
 
-			return Response::json(['success' => true, 'nuevaImagen' => $nuevaImagen]);
 			/*
 			$nuevasImagenes;
 			foreach(Input::file('imagen') as $imagen)
@@ -200,11 +213,6 @@ class ProyectoController extends \BaseController {
 			}
 			return Response::json(['success' => true, 'nuevasImagenes' => $nuevasImagenes]);
 			*/
-		}
-		else
-		{
-			return Redirect::to('admin/proyectos');
-		}
 	}
 
 
@@ -285,7 +293,7 @@ class ProyectoController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$title = 'Editar proyecto - Benech Gerez Arquitectos &amp; Asociados';
+		$title = 'Editar proyecto - Decarlini Maside';
 		$proyecto = Proyecto::find($id);
 		if($proyecto)
 		{
@@ -304,29 +312,21 @@ class ProyectoController extends \BaseController {
 	public function update($id)
 	{
 		$proyecto = Proyecto::find($id);
-		//
 		$actualizarSlug = false;
 		$slugViejo = '';
-		if($proyecto->nombre != Input::get('nombre'))
+		if($proyecto->titulo != Input::get('titulo'))
 		{
 			$actualizarSlug = true;
 			$slugViejo = $proyecto->slug;
 		}
-
-		//
-		$proyecto->nombre = Input::get('nombre');
-		$proyecto->codigo = Input::get('codigo');
-		$proyecto->fecha = Input::get('fecha');
-		$proyecto->descripcion = Input::get('descripcion');
-		$proyecto->descripcion_corta = Input::get('descripcion_corta');
+		$proyecto->titulo = Input::get('titulo');
 		$proyecto->ubicacion = Input::get('ubicacion');
 		$proyecto->superficie = Input::get('superficie');
-		$proyecto->estado_id = Input::get('estado');
-		$proyecto->categoria_id = Input::get('categoria');
-		$proyecto->programa_id = Input::get('programa');
-		$proyecto->tipo_id = Input::get('tipo');
+		$proyecto->ano = Input::get('ano');
+		$proyecto->categoria_id = Input::get('categoria.id');
+		$proyecto->descripcion_corta = Input::get('descripcion_corta');
+		$proyecto->descripcion = Input::get('descripcion');
 		$proyecto->user_id = Auth::user()->id;
-		$proyecto->novedad = Input::get('novedad');
 		$proyecto->save();
 		if($actualizarSlug)
 		{
@@ -334,52 +334,9 @@ class ProyectoController extends \BaseController {
 			$redireccionamiento->slug = $slugViejo;
 			$redireccionamiento->proyecto_id = $proyecto->id;
 			$redireccionamiento->save();
-			HomeController::sitemap(); 
+			//HomeController::sitemap(); 
 		}
-		foreach(Responsable::all() as $responsable)
-		{
-			if(Input::get('R-'.$responsable->id) == '1')
-			{
-				if($proyecto->responsables()->find($responsable->id))
-				{
-					$proyecto->responsables()->updateExistingPivot($responsable->id, array('aclaracion' => Input::get('AR-'.$responsable->id, '')));
-				}
-				else
-				{
-					$proyecto->responsables()->save($responsable, array('aclaracion' => Input::get('AR-'.$responsable->id, '')));
-				}
-			}
-			else
-			{
-				if($proyecto->responsables()->find($responsable->id))
-				{
-					$proyecto->responsables()->detach($responsable->id);
-				}
-			}
-		}
-
-		foreach(Colaborador::all() as $colaborador)
-		{
-			if(Input::get('C-'.$colaborador->id) == '1')
-			{
-				if($proyecto->colaboradores()->find($colaborador->id))
-				{
-					$proyecto->responsables()->updateExistingPivot($colaborador->id, array('aclaracion' => Input::get('AC-'.$colaborador->id, '')));
-				}
-				else
-				{
-					$proyecto->colaboradores()->save($colaborador, array('aclaracion' => Input::get('AC-'.$colaborador->id, '')));
-				}
-			}
-			else
-			{
-				if($proyecto->colaboradores()->find($colaborador->id))
-				{
-					$proyecto->colaboradores()->detach($colaborador->id);
-				}
-			}
-		}
-		return Redirect::to('admin');
+		return $proyecto->toJson();
 	}
 
 
@@ -389,39 +346,41 @@ class ProyectoController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy()
+	public function destroy($id)
 	{
-		if(Request::ajax())
-		{
-			$idProyecto = Input::get('idProyectoEliminar');
-			$proyecto = Proyecto::find($idProyecto);
-			File::deleteDirectory(public_path() . '/' . 'img/proyectos/' . $proyecto->id);
-			Proyecto::destroy($proyecto->id);
-			HomeController::sitemap();
-			return Response::json(array(
-				'success'	=> true,
-				'idProyecto'=> $idProyecto
-				));
-		}
+		$idProyecto = $id;
+		$proyecto = Proyecto::find($id);
+		File::deleteDirectory(public_path() . '/' . 'img/proyectos/' . $proyecto->id);
+		Proyecto::destroy($proyecto->id);
+		//HomeController::sitemap();
+		return Response::json(array(
+			'success'	=> true,
+			'idProyecto'=> $idProyecto
+			));	
 	}
 
-	public function eliminarImagenes()
+	public function eliminarImagenes($id)
 	{
-		if(Request::ajax())
-		{
-			$proyecto = Proyecto::find(Input::get('idProyecto'));
-			foreach($proyecto->imagenes as $foto)
+		
+			$proyecto = Proyecto::find($id);
+			if($proyecto)
 			{
-				File::delete(public_path() . '/' . $foto->ruta . 'min/' . $foto->nombre_archivo);
-				File::delete(public_path() . '/' . $foto->ruta . 'pda/' . $foto->nombre_archivo);
-				File::delete(public_path() . '/' . $foto->ruta . 'big/' . $foto->nombre_archivo);
-	           	Foto::destroy($foto->id);
-			}
+				foreach($proyecto->imagenes as $foto)
+				{
+					File::delete(public_path() . '/' . $foto->ruta . 'min/' . $foto->nombre_archivo);
+					File::delete(public_path() . '/' . $foto->ruta . 'pda/' . $foto->nombre_archivo);
+					File::delete(public_path() . '/' . $foto->ruta . 'big/' . $foto->nombre_archivo);
+		           	Imagen::destroy($foto->id);
+				}
 			return Response::json(array(
 					'success' => true
 					));
+			}
+			return Response::json(array(
+					'success' => false
+					));
+			
 		}
-	}
 
 	public function cambiarEstadoNovedad($idProyecto)
 	{
@@ -464,6 +423,26 @@ class ProyectoController extends \BaseController {
 					));
 			
 		}
+	}
+
+	public function apiIndex()
+	{
+		$proyectos = Proyecto::with('categoria')->get();
+		if($proyectos)
+			return $proyectos->toJson();
+		return '';
+	}
+
+	public function getItem($id)
+	{
+		$proyecto = Proyecto::with('categoria')->with('imagenes')->OrderBy('orden')->find($id);
+		//$proyecto = $proyecto->with('categoria')->get();
+		//
+		//$user = User::with(array('categoria','proyecto.categoria'))->where('id','=',$proyecto->categoria_id)->get();
+		//
+		if($proyecto)
+			return $proyecto->toJson();
+		return '';
 	}
 
 }

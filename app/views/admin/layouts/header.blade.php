@@ -14,8 +14,8 @@
   			</div>
 	 	 	<div class="collapse navbar-collapse navbar-ex1-collapse">
     			<ul class="nav navbar-nav">
-              <li><a {{ Request::path() == 'admin' ? 'class="active"' : 'href="'.asset("admin").'" title="Proyectos"' }}>Proyectos</a></li>
-              <li class="usuario"><a title="Configuraci&oacute;n de usuario" href="{{ asset('admin/configuracion') }}">{{ Auth::user()->name }}</a></li>
+              <li><a title="Ver proyectos" ng-href="{{ asset('admin#') }}">Proyectos</a></li>
+              <li class="usuario"><a title="Configuraci&oacute;n de usuario" ng-href="{{ asset('admin#/configuracion') }}">{{ Auth::user()->name }}</a></li>
               <li class="icono-nav"><a href="{{ asset('cerrarSesion') }}" title="Cerrar sesi&oacute;n"><span class="glyphicon glyphicon-off"></span></a></li>
     			</ul>
   			</div>

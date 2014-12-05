@@ -65,16 +65,15 @@ class ImagenController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update()
+	public function update($id)
 	{
-		if(Request::ajax())
-		{
-			$proyecto = Proyecto::find(Input::get('id'));
+		
+			$proyecto = Proyecto::find($id);
 			//orden_371,orden_372,orden_379,orden_382
 			$stringOrden = Input::get('sorted');
-			$stringOrden = str_replace('orden_', '', $stringOrden);
+			$vectorOrden = str_replace('orden_', '', $stringOrden);
 			//371,372,
-			$vectorOrden = preg_split("/[\s,]+/", $stringOrden);
+			//$vectorOrden = preg_split("/[\s,]+/", $stringOrden);
 			$contador = 1;
 
 			foreach($vectorOrden as $index => $idImagen)
@@ -85,10 +84,9 @@ class ImagenController extends \BaseController {
 				$contador = $contador + 1;
 			}
 				return Response::json(array(
-					'success' => true
+					'success' => true, 'ordenes' => $proyecto->imagenes
 					));
 			
-		}
 	}
 
 
@@ -98,39 +96,32 @@ class ImagenController extends \BaseController {
 	 * 
 	 * @return Response
 	 */
-	public function destroy()
+	public function destroy($id)
 	{
-		if(Request::ajax())
+		$imagen = Imagen::find($id);
+		$proyecto = $imagen->proyecto;
+		$ordenImagen = $imagen->orden;
+		File::delete(public_path() . '/' . $imagen->ruta . 'min/' . $imagen->nombre_archivo);
+		File::delete(public_path() . '/' . $imagen->ruta . 'pda/' . $imagen->nombre_archivo);
+		File::delete(public_path() . '/' . $imagen->ruta . 'big/' . $imagen->nombre_archivo);
+       	Imagen::destroy($id);
+       	if($imagen->proyecto->imagenes()->count() > 0)
 		{
-			$idImagen = Input::get('idImagen');
-			$hayPlano = false;
-			if(Input::get('hayPlano') == '1')
-				$hayPlano = true;
-			$imagen = Imagen::find($idImagen);
-			$proyecto = $imagen->proyecto;
-			$ordenImagen = $imagen->orden;
-			File::delete(public_path() . '/' . $imagen->ruta . 'min/' . $imagen->nombre_archivo);
-			File::delete(public_path() . '/' . $imagen->ruta . 'list/' . $imagen->nombre_archivo);
-			File::delete(public_path() . '/' . $imagen->ruta . 'big/' . $imagen->nombre_archivo);
-           	Imagen::destroy($idImagen);
-           	if($imagen->proyecto->imagenes()->count() > 0)
-			{
-				return Response::json(array(
-					'success' => true,
-					'idImagen' => $idImagen,
-					'sinImagenes' => false
-					));
-			}
-			else
-			{
-				return Response::json(array(
-					'success' => true,
-					'idImagen' => $idImagen,
-					'sinImagenes' => true
-					));
-			}
-			
+			return Response::json(array(
+				'success' => true,
+				'idImagen' => $id,
+				'sinImagenes' => false
+				));
 		}
+		else
+		{
+			return Response::json(array(
+				'success' => true,
+				'idImagen' => $id,
+				'sinImagenes' => true
+				));
+		}
+			
 	}
 
 
