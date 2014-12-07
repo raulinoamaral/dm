@@ -63,12 +63,18 @@
 			        </div>
 			    </div>
 	        </div>
-	        <div class="row">
-	        	<div class="col-xs-6 col-sm-2 right">
-	        		<input class="guardar btn btn-success" ng-click="proyectoCtrl.submitted=true" type="submit" value="GUARDAR">
-	        	</div>
-	        	<div class="col-xs-6 col-sm-2 right">
-	        		<a ng-href="/" class="btn btn-warning cancelar" role="button">CANCELAR</a>
+	        <div id="botonera">
+				<div class="row">
+					<div class="col-sm-offset-8">
+						<div class="row">
+				        	<div class="col-xs-6">
+	        					<input class="guardar btn btn-success" ng-click="proyectoCtrl.submitted=true" type="submit" value="Guardar">
+	        				</div>
+				        	<div class="col-xs-6">
+				        		<a ng-href="/admin" class="btn btn-warning cancelar" role="button">Cancelar</a>
+				        	</div>
+	        			</div>
+	        		</div>
 	        	</div>
 	        </div>
 		</form>

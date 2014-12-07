@@ -21,6 +21,9 @@ h2{
 h2#porcentual{
 	margin: 5px 0 0 170px;
 }
+h3{
+	font-size: 1em;
+}
 header{
 	background: #f9f9f9;
 }
@@ -96,6 +99,8 @@ select{
     -moz-border-radius:0px;
     border-radius:0px;
     -webkit-appearance: none;
+    background: url(../img/arrow-select.png) no-repeat center right 10px;
+
 }
 input[type="checkbox"] {
 	border: none;
@@ -189,8 +194,15 @@ input#botonIngresar.btn, #botonRecuperar, #botonGuardar{
 .colaborador{
 	height: 40px;
 }
-.guardar{
+#botonera{
 	margin: 25px 0;
+}
+#botonera .btn{
+	margin: 5px; 
+}
+.guardar{
+	margin: 5px 0;
+	width: 100%;
 }
 #galeria-ordenada{
 	margin-bottom: 15px;
@@ -228,7 +240,7 @@ ul#contenedorImagenes li:hover{
 	text-align: center;
 	padding-top: 8px;
 }
-p#foto-ppal{
+p#imagen-ppal{
 	text-transform: uppercase;
 	margin-bottom: -10px;
 	display: block;
@@ -238,6 +250,12 @@ p#foto-ppal{
 	background: #eee;
 	border: 1px solid #EEE;
 	margin-left: 2px;
+}
+#modalEliminarFoto{
+	text-align: center;
+}
+#modalEliminarFoto img{
+	width: 50%;
 }
 table{
 	margin-top: 10px;
@@ -251,9 +269,6 @@ table .botones{
 table .botones span{
 	margin: 0 5px;
 	text-align: center;
-}
-.nombre-proyecto{
-	cursor: move;
 }
 .editar:hover{
 	color: #38B338;
@@ -273,6 +288,12 @@ table .botones span{
 	font-size: 13px;
 	padding: 7px 12px;
 }
+.navbar-header{
+	margin: 10px;
+}
+.navbar-nav{
+	margin-top: 20px;
+}
 .navbar-default{
 	border: none;
 	background: #fff;
@@ -281,7 +302,6 @@ table .botones span{
 .navbar-brand{
 	height: auto;
 	padding: 0;
-	margin-right: 25px;
 }
 .progress{
 	margin: 15px 0;
@@ -418,4 +438,14 @@ footer{
 
 .at-repeat-fade-out.ng-leave-active {
     opacity: 0;
+}
+@media only screen and (max-width:767px){
+	ul#contenedorImagenes li{
+		float: none;
+		margin: 2px auto;
+		}
+	p#imagen-ppal{
+		margin: 5px auto;
+	}
+
 }

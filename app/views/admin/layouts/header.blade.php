@@ -9,7 +9,7 @@
 			      <span class="icon-bar"></span>
     			</button>
     			<a class="navbar-brand" href="{{ asset('admin') }}" title="Panel de administraci&oacute;n">
-            <img src="{{ asset('img/decarlini-maside-arquitectos.png') }}" alt="Decarlini Maside" class="img-responsive" />  
+            <img src="{{ asset('img/decarlini-maside-arquitectos-admin.png') }}" alt="Decarlini Maside" class="img-responsive" />  
           </a>
   			</div>
 	 	 	<div class="collapse navbar-collapse navbar-ex1-collapse">

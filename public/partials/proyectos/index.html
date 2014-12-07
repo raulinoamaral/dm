@@ -22,9 +22,9 @@
 					<td class="proyecto" id="nombre-proyecto-(( proyecto.id ))">(( proyecto.categoria.nombre ))</td>
 					<td class="botones">
 						<a target="_blank" ng-href="portafolio/(( proyecto.categoria.slug ))/(( proyecto.slug ))" title="Ver proyecto"><span class="glyphicon glyphicon-new-window ver-proyecto"></span></a>
-						<a target="_self" ng-href="admin#/proyectos/(( proyecto.id ))/editar" title="Editar proyecto"><span class="glyphicon glyphicon-pencil ver-proyecto"></span></a>
-						<a target="_self" ng-href="admin#/proyectos/(( proyecto.id ))/galeria" title="Editar galer&iacute;a"><span class="glyphicon glyphicon-picture ver-proyecto"></span></a>
-						<a ng-click="ProyectoCtrl.openBorrarProyecto(proyecto)" href="" target="_self" title="Eliminar proyecto"><span class="glyphicon glyphicon-trash ver-proyecto"></span></a>	
+						<a target="_self" ng-href="admin#/proyectos/(( proyecto.id ))/editar" title="Editar proyecto"><span class="glyphicon glyphicon-pencil editar"></span></a>
+						<a target="_self" ng-href="admin#/proyectos/(( proyecto.id ))/galeria" title="Editar galer&iacute;a"><span class="glyphicon glyphicon-picture editar-galeria"></span></a>
+						<a ng-click="ProyectoCtrl.openBorrarProyecto(proyecto)" href="" target="_self" title="Eliminar proyecto"><span class="glyphicon glyphicon-trash eliminar-proyecto"></span></a>	
 					</td>
 				</tr>
 			</tbody>
