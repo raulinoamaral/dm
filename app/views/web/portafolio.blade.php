@@ -34,9 +34,10 @@
 							</div>
 						</div>
 					@endforeach
-				</section>					
+				</section>
+				<div class="clear"></div>
+				{{ $proyectos->links() }}				
 			</div>
-			{{ $proyectos->links() }}
 		</div>
 	</div>
 @stop

@@ -7,7 +7,7 @@ body{
 	font-weight: 400;
 }
 header{
-	padding: 20px 0;
+	dding: 20px 0;
 	width: 100%;
 	z-index: 5;
 }
@@ -21,8 +21,12 @@ h2{
 p, table{
 	font-size: .9em;
 }
-a, a:hover{
+a{
+	color: #333;
+}
+a:hover{
 	color: #005DBD;
+	text-decoration: none;
 }
 ul li{
 	list-style: none;
@@ -143,10 +147,12 @@ input:hover, textarea:hover, input:focus, textarea:focus{
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit  */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko         */
 	box-sizing: border-box; 
-
 }
 #galeria img.img-destacada{
 	width: 100%;
+}
+.pagination{
+	border-radius: 0;
 }
 #mapa{
 	width: 100%;
@@ -157,9 +163,6 @@ h2#direccion{
 	font-size: .9em;
 	margin-top: 5px;
 }
-
-
-
 footer{
 	padding-bottom: 20px;
 	font-size: .9em;
@@ -179,5 +182,11 @@ footer .container{
 }
 #balloon{
 	float: right;
+}
+#balloon a{
+	color: #005DBD;
+}
+.clear{
+	clear: both;
 }
 
